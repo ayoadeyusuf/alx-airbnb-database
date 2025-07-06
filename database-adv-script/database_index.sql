@@ -12,3 +12,6 @@ CREATE INDEX idx_bookings_start_end_date ON bookings(start_date, end_date);
 CREATE INDEX idx_properties_host_id ON properties(host_id);
 CREATE INDEX idx_properties_location ON properties(location);
 CREATE INDEX idx_properties_price ON properties(price_per_night);
+
+EXPLAIN ANALYZE
+SELECT * FROM bookings WHERE user_id = 123 AND status = 'confirmed';
