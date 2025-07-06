@@ -16,3 +16,11 @@
 - Writing a query to find the total number of bookings made by each user, using the COUNT function and GROUP BY clause.
 
 - Using a window function (ROW_NUMBER, RANK) to rank properties based on the total number of bookings they have received.
+
+## Implemented Indexes for Optimization
+
+## Optimize Complex Queries
+
+## Partitioning Large Tables
+
+## Monitor and Refine Database Performance
