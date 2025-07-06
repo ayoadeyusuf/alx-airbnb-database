@@ -6,7 +6,7 @@ CREATE TABLE users (
     email           VARCHAR(100) NOT NULL,
     password_hash   VARCHAR(255) NOT NULL,
     phone_number    VARCHAR(20),
-    role            ENUM ('guest', 'host', 'admin') NOT NULL CHECK (role IN ('host', 'guest', 'admin')),
+    role            VARCHAR(20) NOT NULL CHECK (role IN ('host', 'guest', 'admin')),
     created_at      TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     
     -- Unique constraint
@@ -34,7 +34,7 @@ CREATE TABLE bookings (
     start_date      DATE NOT NULL,
     end_date        DATE NOT NULL,
     total_price     DECIMAL NOT NULL CHECK (total_price >= 0),
-    status          ENUM('pending', 'confirmed', 'canceled') NOT NULL 
+    status          VARCHAR(20) NOT NULL 
         CHECK (status IN ('pending', 'confirmed', 'canceled')),
     created_at      TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
@@ -45,7 +45,7 @@ CREATE TABLE payments (
     booking_id      INTEGER NOT NULL REFERENCES bookings(booking_id) ON DELETE CASCADE,
     amount          DECIMAL NOT NULL CHECK (amount >= 0),
     payment_date    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    payment_method  ENUM ('credit_card', 'paypal, stripe') NOT NULL
+    payment_method  VARCHAR(20) NOT NULL
 );
 
 -- 5. Review Table
